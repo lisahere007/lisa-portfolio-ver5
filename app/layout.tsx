@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { LangProvider } from '@/context/LangContext'
 import Sidebar from '@/components/Sidebar'
 import './globals.css'
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: 'Lisa · PM Portfolio',
@@ -20,15 +21,16 @@ export default function RootLayout({
           <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
             <Sidebar />
             <main style={{
-  marginLeft: '180px',
-  flex: 1,
-  height: '100vh',
-  overflowY: 'auto',
-}} className="main-content">
+              marginLeft: '180px',
+              flex: 1,
+              height: '100vh',
+              overflowY: 'auto',
+            }} className="main-content">
               {children}
             </main>
           </div>
         </LangProvider>
+        <Analytics />
       </body>
     </html>
   )
